@@ -1,0 +1,1 @@
+1. Add error message and loading state for Trending movie section

@@ -48,8 +48,25 @@ if (result.rows.length > 0) {
     })
 }
 } catch (error) {
-    console.log(error);
+    console.error(error);
 }
 
 
 }
+
+export const getTrendingMovies = async () => {
+    try {
+        const result = await database.listRows({
+            databaseId: DATABASE_ID, 
+            tableId: TABLE_ID, 
+            queries: [
+                Query.limit(5),
+                Query.orderDesc("count")
+                 ]
+    });
+
+        return result.rows;
+    } catch (error) {
+        console.error(error);
+    }
+};
